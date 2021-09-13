@@ -1,0 +1,23 @@
+<% if @order.errors.any? %>
+  <h2>The following errors prevented the order from being saved</h2>
+  <ul>
+    <% @order.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= simple_form_for(@order) do |f| %>
+  <div class="form-inputs mt-5">
+    <%= f.input :customer_name %>
+    <%= f.input :delivery_due, as: :datetime %>
+
+    <%= f.simple_fields_for :delivery do |form| %>
+      <%= form.input :start_address %>
+      <%= form.input :end_address %>
+    <% end %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

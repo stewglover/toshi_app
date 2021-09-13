@@ -1,0 +1,10 @@
+<h1>Customer Name: <%= @order.customer_name %></h1>
+
+<ul>
+  <li>Date Due: <%=@order.delivery_due %></li>
+  <li>Journey (minutes): <%=@order.journey_time %></li>
+  <li>Starting Location: <%=@order.delivery.start_address %></li>
+  <li>End Location: <%=@order.delivery.end_address %></li>
+
+</ul>
+<%= link_to 'Home', orders_path %>
